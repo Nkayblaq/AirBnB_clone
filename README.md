@@ -66,7 +66,9 @@ EOF  help  quit
 $
 ```
 ## Usage
+
 | Command | Description |
+| --- | ---|
 | Run the console | ./console.py |
 | Quit the console | (hbnb) quit |
 | Display the help for a command | (hbnb) help <command> |
