@@ -24,11 +24,66 @@ And as part of the implementation of the command line interpreter coupled with t
 + Updating attributes of an object
 + Destroying an object
 
-## How to start it
-These instructions will get you a copy of the project up and running on your local machine (Linux distro) for development and testing purposes.
+## How to use it
+It can work in two different modes:
 
-## Installing
-You will need to clone the repository of the project from Github. This will contain the simple shell program and all of its dependencies.
+Interactive and Non-interactive.
+
+In Interactive mode, the console will display a prompt (hbnb) indicating that the user can write and execute a command. After the command is run, the prompt will appear again a wait for a new command. This can go indefinitely as long as the user does not exit the program.
 ```bash
-git clone https://github.com/jzamora5/AirBnB_clone.git
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb) 
+(hbnb) 
+(hbnb) quit
+$
 ```
+In Non-interactive mode, the shell will need to be run with a command input piped into its execution so that the command is run as soon as the Shell starts. In this mode no prompt will appear, and no further input will be expected from the user.
+```bash
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb) 
+$
+```
+## Usage
+| Command | Description |
+| Run the console | ./console.py |
+| Quit the console | (hbnb) quit |
+| Display the help for a command | (hbnb) help <command> |
+| Create an object (prints its id) | (hbnb) create <class> |
+| Show an object | (hbnb) show <class> <id> or (hbnb) <class>.show(<id>) |
+| Destroy an object | (hbnb) destroy <class> <id> or (hbnb) <class>.destroy(<id>) |
+| Show all objects, or all instances of a class | (hbnb) all or (hbnb) all <class> |
+| Update an attribute of an object | (hbnb) update <class> <id> <attribute name> "<attribute value>" or (hbnb) <class>.update(<id>, <attribute name>, "<attribute value>") |
+
+## Testing
+All the tests should be executed by using this command: 
+```bash
+python3 -m unittest discover tests
+```
+You can also test file by file by using this command: 
+```bash
+python3 -m unittest tests/test_models/test_base_model.py
+```
+
+
